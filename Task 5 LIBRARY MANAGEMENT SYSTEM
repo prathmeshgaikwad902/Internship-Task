@@ -1,1 +1,105 @@
 
+#include <iostream>
+#include <string>
+#include <vector>
+
+// Define a structure for each book
+struct Book {
+    int bookId;
+    std::string title;
+    std::string author;
+};
+
+// Define a structure for each borrower
+struct Borrower {
+    int borrowerId;
+    std::string name;
+};
+
+// Define a structure for each transaction
+struct Transaction {
+    int transactionId;
+    int bookId;
+    int borrowerId;
+};
+
+// Function to add a new book
+void addBook(std::vector<Book>& books, int bookId, const std::string& title, const std::string& author) {
+    Book newBook;
+    newBook.bookId = bookId;
+    newBook.title = title;
+    newBook.author = author;
+    books.push_back(newBook);
+    std::cout << "Book added successfully!\n";
+}
+
+// Function to view all books
+void viewBooks(const std::vector<Book>& books) {
+    std::cout << "Books:\n";
+    for (const auto& book : books) {
+        std::cout << "ID: " << book.bookId << ", Title: " << book.title << ", Author: " << book.author << "\n";
+    }
+}
+
+// Function to add a new borrower
+void addBorrower(std::vector<Borrower>& borrowers, int borrowerId, const std::string& name) {
+    Borrower newBorrower;
+    newBorrower.borrowerId = borrowerId;
+    newBorrower.name = name;
+    borrowers.push_back(newBorrower);
+    std::cout << "Borrower added successfully!\n";
+}
+
+// Function to view all borrowers
+void viewBorrowers(const std::vector<Borrower>& borrowers) {
+    std::cout << "Borrowers:\n";
+    for (const auto& borrower : borrowers) {
+        std::cout << "ID: " << borrower.borrowerId << ", Name: " << borrower.name << "\n";
+    }
+}
+
+int main() {
+    std::vector<Book> books;
+    std::vector<Borrower> borrowers;
+
+    while (true) {
+        std::cout << "\nLibrary Management System\n";
+        std::cout << "1. Add a book\n";
+        std::cout << "2. View books\n";
+        std::cout << "3. Add a borrower\n";
+        std::cout << "4. View borrowers\n";
+        std::cout << "5. Exit\n";
+        int choice;
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                int bookId;
+                std::string title, author;
+                std::cout << "Enter book ID, title, and author: ";
+                std::cin >> bookId >> title >> author;
+                addBook(books, bookId, title, author);
+                break;
+            case 2:
+                viewBooks(books);
+                break;
+            case 3:
+                int borrowerId;
+                std::string name;
+                std::cout << "Enter borrower ID and name: ";
+                std::cin >> borrowerId >> name;
+                addBorrower(borrowers, borrowerId, name);
+                break;
+            case 4:
+                viewBorrowers(borrowers);
+                break;
+            case 5:
+                std::cout << "Exiting. Have a great day!\n";
+                return 0;
+            default:
+                std::cout << "Invalid choice. Try again.\n";
+        }
+    }
+
+    return 0;
+}
