@@ -1,1 +1,77 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+// Define a structure for each task
+struct Task {
+    std::string description;
+    bool completed;
+};
+
+// Function to add a new task
+void addTask(std::vector<Task>& tasks, const std::string& description) {
+    Task newTask;
+    newTask.description = description;
+    newTask.completed = false;
+    tasks.push_back(newTask);
+    std::cout << "Task added successfully!\n";
+}
+
+// Function to view all tasks
+void viewTasks(const std::vector<Task>& tasks) {
+    std::cout << "Tasks:\n";
+    for (const auto& task : tasks) {
+        std::cout << (task.completed ? "[X] " : "[ ] ") << task.description << "\n";
+    }
+}
+
+// Function to delete a task
+void deleteTask(std::vector<Task>& tasks, int index) {
+    if (index >= 0 && index < tasks.size()) {
+        tasks.erase(tasks.begin() + index);
+        std::cout << "Task deleted successfully!\n";
+    } else {
+        std::cout << "Invalid task index.\n";
+    }
+}
+
+int main() {
+    std::vector<Task> tasks;
+
+    while (true) {
+        std::cout << "\nTo-Do List Manager\n";
+        std::cout << "1. Add a task\n";
+        std::cout << "2. View tasks\n";
+        std::cout << "3. Delete a task\n";
+        std::cout << "4. Exit\n";
+        int choice;
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                std::cout << "Enter task description: ";
+                std::cin.ignore(); // Clear newline from previous input
+                std::string description;
+                std::getline(std::cin, description);
+                addTask(tasks, description);
+                break;
+            case 2:
+                viewTasks(tasks);
+                break;
+            case 3:
+                std::cout << "Enter task index to delete: ";
+                int index;
+                std::cin >> index;
+                deleteTask(tasks, index);
+                break;
+            case 4:
+                std::cout << "Exiting. Have a great day!\n";
+                return 0;
+            default:
+                std::cout << "Invalid choice. Try again.\n";
+        }
+    }
+
+    return 0;
+}
 
