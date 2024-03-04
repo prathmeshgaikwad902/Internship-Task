@@ -1,1 +1,96 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+// Function declarations
+void printBoard(const vector<string>& board);
+bool placeMarker(int slot, vector<string>& board, const string& currentPlayer);
+bool checkWinner(const vector<string>& board);
+bool checkDraw(const vector<string>& board);
+void switchPlayer(string& currentPlayer);
+
+int main() {
+    vector<string> board = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    string currentPlayer = "X";
+    bool gameWon = false;
+    bool gameDraw = false;
+
+    while (!gameWon && !gameDraw) {
+        printBoard(board);
+        cout << "Player " << currentPlayer << "'s turn. Choose a slot: ";
+        
+        int slot;
+        cin >> slot;
+
+        if (!placeMarker(slot, board, currentPlayer)) {
+            cout << "Invalid move, try again." << endl;
+            continue;
+        }
+
+        gameWon = checkWinner(board);
+        gameDraw = checkDraw(board);
+
+        if (gameWon) {
+            printBoard(board);
+            cout << "Player " << currentPlayer << " wins!" << endl;
+        } else if (gameDraw) {
+            printBoard(board);
+            cout << "The game is a draw!" << endl;
+        } else {
+            switchPlayer(currentPlayer);
+        }
+    }
+
+    return 0;
+}
+
+void printBoard(const vector<string>& board) {
+    cout << endl;
+    for (int i = 0; i < 9; i += 3) {
+        cout << " " << board[i] << " | " << board[i+1] << " | " << board[i+2] << " " << endl;
+        if (i < 6) {
+            cout << "---|---|---" << endl;
+        }
+    }
+    cout << endl;
+}
+
+bool placeMarker(int slot, vector<string>& board, const string& currentPlayer) {
+    if (slot < 1 || slot > 9 || board[slot - 1] == "X" || board[slot - 1] == "O") {
+        return false;
+    }
+    board[slot - 1] = currentPlayer;
+    return true;
+}
+
+bool checkWinner(const vector<string>& board) {
+    for (int i = 0; i < 3; ++i) {
+        // Check rows and columns
+        if ((board[i*3] == board[i*3 + 1] && board[i*3 + 1] == board[i*3 + 2]) ||
+            (board[i] == board[i + 3] && board[i + 3] == board[i + 6])) {
+            return true;
+        }
+    }
+    // Check diagonals
+    if ((board[0] == board[4] && board[4] == board[8]) || 
+        (board[2] == board[4] && board[4] == board[6])) {
+        return true;
+    }
+    return false;
+}
+
+bool checkDraw(const vector<string>& board) {
+    for (const string& slot : board) {
+        if (slot != "X" && slot != "O") {
+            return false;
+        }
+    }
+    return true;
+}
+
+void switchPlayer(string& currentPlayer) {
+    currentPlayer = (currentPlayer == "X") ? "O" : "X";
+}
 
