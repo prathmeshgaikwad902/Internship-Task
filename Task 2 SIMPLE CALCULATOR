@@ -1,1 +1,43 @@
+#include <iostream>
+
+int main() {
+    double num1, num2;
+    char operation;
+    double result;
+
+    std::cout << "Enter the first number: ";
+    std::cin >> num1;
+    std::cout << "Enter the second number: ";
+    std::cin >> num2;
+
+    std::cout << "Enter the operation you would like to perform (+, -, *, /): ";
+    std::cin >> operation;
+
+    switch(operation) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            
+            if(num2 == 0) {
+                std::cout << "Error: Division by zero." << std::endl;
+                return 1; 
+            }
+            result = num1 / num2;
+            break;
+        default:
+            std::cout << "Invalid operation." << std::endl;
+            return 1;
+    }
+
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}
 
