@@ -1,0 +1,84 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "iPhone 14",
+            "price": 20000,
+            "category": "mobile",
+            "description": "Latest model with advanced camera features",
+            "image": "https://www.bestbuy.com/site/apple-iphone-14-128gb-unlocked-midnight/6507555.p"
+        },
+        {
+            "id": 2,
+            "name": "Dell XPS 15",
+            "price": 75000,
+            "category": "laptop",
+            "description": "High-performance laptop with stunning display",
+            "image": "https://laptopmedia.com/laptop-specs/dell-xps-15-9520-39/specs/"
+        },
+        {
+            "id": 3,
+            "name": "Sony WH-1000XM5",
+            "price": 25000,
+            "category": "headphones",
+            "description": "Noise-canceling headphones for immersive sound",
+            "image": "https://www.techniknews.net/en/news/sony-wh-1000xm5-erste-informationen-vorab-exklusiv/"
+        },
+        {
+            "id": 4,
+            "name": "Samsung 65-inch OLED TV",
+            "price": 120000,
+            "category": "television",
+            "description": "Ultra-HD OLED TV with smart features",
+            "image": "https://au.pcmag.com/tvs/94494/samsung-65-inch-class-s95b-oled-tv"
+        },
+        {
+            "id": 5,
+            "name": "Canon EOS R7",
+            "price": 90000,
+            "category": "camera",
+            "description": "Professional-grade mirrorless camera with high resolution",
+            "image": "https://www.dpreview.com/samples/1743247551/canon-eos-r7-sample-gallery"
+        },
+        {
+            "id": 6,
+            "name": "Nike Air Max 270",
+            "price": 12000,
+            "category": "footwear",
+            "description": "Comfortable and stylish running shoes",
+            "image": "https://www.nike.com/t/air-max-270-mens-shoes-KkLcGR"
+        },
+        {
+            "id": 7,
+            "name": "Rolex Submariner",
+            "price": 800000,
+            "category": "watch",
+            "description": "Luxury diving watch with timeless design",
+            "image": "https://wannabuyawatch.com/product/rolex-submariner-ref-16610-stainless-steel-circa-1996-exceptional/"
+        },
+        {
+            "id": 8,
+            "name": "Apple iPad Pro",
+            "price": 60000,
+            "category": "tablet",
+            "description": "Powerful tablet with Apple Pencil support",
+            "image": "https://www.nextpit.de/apple-ipad-pro-2022-11-zoll-test"
+        },
+        {
+            "id": 9,
+            "name": "Logitech MX Master 3",
+            "price": 10000,
+            "category": "accessory",
+            "description": "Ergonomic mouse with precision control",
+            "image": "https://www.bhphotovideo.com/c/product/1502446-REG/logitech_910_005647_mx_master_3_wireless.html"
+        },
+        {
+            "id": 10,
+            "name": "Dyson Air Purifier",
+            "price": 45000,
+            "category": "home appliance",
+            "description": "Advanced air purifier with HEPA filtration",
+            "image": "https://www.dyson.my/dyson-purifier-cool-white-silver"
+        }
+    ]
+}
